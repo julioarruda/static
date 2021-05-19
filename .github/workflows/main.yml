@@ -1,0 +1,23 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Deploy
+        id: deploy
+        uses: DigitalSVN/GoStatic@v1.0
+        with:
+          api-token: ${{ secrets.GOSTATIC_API_TOKEN }}
+          source-dir: './example_output_directory'
+
+      - name: Output the deployment URL
+        run: echo "URL ${{ steps.deploy.outputs.url }}"
+
