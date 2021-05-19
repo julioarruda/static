@@ -16,7 +16,7 @@ jobs:
         uses: DigitalSVN/GoStatic@v1.0
         with:
           api-token: ${{ secrets.GOSTATIC_API_TOKEN }}
-          source-dir: './example_output_directory'
+          source-dir: './'
 
       - name: Output the deployment URL
         run: echo "URL ${{ steps.deploy.outputs.url }}"
